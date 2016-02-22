@@ -71,5 +71,6 @@ $(".next").click(function(e){
     e.preventDefault();
     $('.book').turn("next");
 });
+    /*removing jquery loading of values as this is not required in angularjs*/
 }());
 

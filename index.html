@@ -56,6 +56,11 @@
                 <div class="page br-tl-bl">
                     <div class="form-group">
                         <form name="sectionOne" novalidate>
+                            <!--itrating over section to get question
+                            setting modal dynamically
+                            putting ng-required based on isRequired
+                            span added for form validation message
+                            -->
                             <div ng-repeat="question in jsonStore.result.sections[0].questions">
                                 <input type="{{responseTypes[question.response_type_id]}}"
                                        name="{{question.placeholder}}" ng-model="model[question.placeholder]"
@@ -68,6 +73,7 @@
                             </div>
                         </form>
                     </div>
+                    <!--disabling next button till form is valid-->
                     <button ng-disabled="!sectionOne.$valid" class="btn btn-primary next">Next</button>
                 </div>
                 <div class="page br-tr-br">
@@ -80,6 +86,11 @@
                 <div class="page br-tl-bl">
                     <div class="form-group">
                         <form name="sectionTwo" novalidate>
+                            <!--itrating over section to get question
+                       setting modal dynamically
+                       putting ng-required based on isRequired
+                       span added for form validation message
+                       -->
                             <div ng-repeat="question in jsonStore.result.sections[1].questions">
                                 <input type="{{responseTypes[question.response_type_id]}}"
                                        ng-model="model[question.placeholder]"
@@ -93,6 +104,7 @@
                         </form>
                     </div>
                     <div class="form-group">
+                        <!--disabling submit button till form is valid-->
                         <button class="btn btn-success submit-btn" ng-disabled="!sectionTwo.$valid" data-toggle="modal"
                                 data-target="#myModal"> submit
                         </button>
@@ -115,6 +127,8 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
+                    <!--itrating over sections and question in sections to get a question
+                    getting input values directly from models dynamically-->
                     <div ng-repeat="section in jsonStore.result.sections">
                         <p ng-repeat="question in section.questions">
                             <label>{{question.body}} : <span>{{model[question.placeholder]}}</span></label>

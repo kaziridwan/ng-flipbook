@@ -1,6 +1,10 @@
+angular.module('app', [])
+.controller('flipboardControl', function ($scope) {
+    /* $scope.model for view model.
 
-var app = angular.module('app', []);
-app.controller('flipboardControl', function ($scope) {
+    * var viewModel = this ;
+    * can be used in place of $scope with controller as syntax.
+    * */
     $scope.model = {};
     $scope.responseTypes={};
 
@@ -193,6 +197,10 @@ app.controller('flipboardControl', function ($scope) {
             ]
         }
     };
+
+    /*for getting an object for response types from json store
+    * to reduce the repeated itration over the json store in template*/
+
     angular.forEach($scope.jsonStore.result.response_types, function(value){
         $scope.responseTypes[value.id] =value.name;
     });

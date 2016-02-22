@@ -71,7 +71,7 @@ $(".next").click(function(e){
     e.preventDefault();
     $('.book').turn("next");
 });
-$('.submit-btn').click(function(){
+/*$('.submit-btn').click(function(){
     var firstName = $('#firstName').val();
     var lastName = $('#lastName').val();
     var gender = $("input[name='gender']:checked").val();
@@ -84,7 +84,7 @@ $('.submit-btn').click(function(){
     $('#dobLabel').text(dob);
     $('#professionLabel').text(profession);
     $('#summaryLabel').text(summary);
-});
+});*/
 
 }());
 

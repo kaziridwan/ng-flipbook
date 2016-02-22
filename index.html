@@ -17,12 +17,14 @@
 <link rel="stylesheet" href="css/main.css">
 <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
-<body>
+<body ng-app="app" ng-controller="flipboardControl">
 <!-- start of navbar -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+              aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <a class="navbar-brand" href="#">Flipbook Assignment</a> </div>
     <div id="navbar" class="navbar-collapse collapse"> </div>
     <!--/.navbar-collapse --> 
@@ -42,37 +44,34 @@
           </div>
           <div class="page br-tr-br">
             <div class="form-group">
-              <label for="firstName">First Name</label>
-              <label for="lastName">Last Name</label>
-              <label for="gender">Gender</label>
-              <label for="dob">Date Of Birth</label>
+              <div ng-repeat="question in jsonStore.result.sections[0].questions">
+                <label>{{question.body}}</label>
+              </div>
             </div>
             <button class="btn btn-info prev"> Previous </button>
           </div>
           <div class="page br-tl-bl">
             <div class="form-group">
-              <input type="text" class="form-control" id="firstName" placeholder="Enter your First Name">
-              <input type="text" class="form-control" id="lastName" placeholder="Enter your Last Name">
-              <label for="male" class="inline">
-                <input type="radio" id="male" name="gender" value="male">
-                Male </label>
-              <label for="female" class="inline">
-                <input type="radio" id="female" name="gender" value="female">
-                Female </label>
-              <input type="date" name="bday" class="form-control" id="dob" placeholder="mm-dd-yyyy">
+              <div ng-repeat="question in jsonStore.result.sections[0].questions">
+                <input type="{{keyMap[question.response_type_id]}}" ng-model="model[question.placeholder]"
+                       class="form-control"  placeholder="{{question.placeholder}}">
+              </div>
             </div>
             <button class="btn btn-primary next">Next</button>
           </div>
           <div class="page br-tr-br">
             <div class="form-group">
-              <label for="profession">Profession</label>
-              <label for="summary">Summary</label>
+              <div ng-repeat="question in jsonStore.result.sections[1].questions">
+                <label>{{question.body}}</label>
+              </div>
             </div>
           </div>
           <div class="page br-tl-bl">
             <div class="form-group">
-              <input type="text" class="form-control" id="profession" placeholder="Enter your Profession">
-              <textarea id="summary" class="form-control" placeholder="Enter Summary"></textarea>
+              <div ng-repeat="question in jsonStore.result.sections[1].questions">
+                <input type="{{keyMap[question.response_type_id]}}" ng-model="model[question.placeholder]"
+                       class="form-control"  placeholder="{{question.placeholder}}">
+              </div>
             </div>
             <div class="form-group"> <a class="btn btn-success submit-btn" data-toggle="modal" data-target="#myModal"> submit </a> </div>
           </div>
@@ -92,24 +91,11 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <p>
-            <label>First Name : <span id="firstNameLabel"></span></label>
-          </p>
-          <p>
-            <label>Last Name : <span id="lastNameLabel"></span></label>
-          </p>
-          <p>
-            <label>Gender : <span id="genderLabel"></span></label>
-          </p>
-          <p>
-            <label>Date Of Birth : <span id="dobLabel"></span></label>
-          </p>
-          <p>
-            <label>Profession : <span id="professionLabel"></span></label>
-          </p>
-          <p>
-            <label>Summary : <span id="summaryLabel"></span></label>
-          </p>
+          <div ng-repeat="section in jsonStore.result.sections">
+            <p ng-repeat="question in section.questions">
+              <label>{{question.body}} : <span>{{model[question.placeholder]}}</span></label>
+            </p>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
@@ -120,11 +106,13 @@
 </div>
 <!-- End of Modal -->
 <!-- Start of script -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script> 
 <script src="js/vendor/bootstrap.min.js"></script> 
 <script src="js/turn.js"></script> 
 <script src="js/main.js"></script>
+<script src="js/app.js"></script>
 <!-- End of script -->
 </body>
 </html>

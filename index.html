@@ -53,8 +53,8 @@
           <div class="page br-tl-bl">
             <div class="form-group">
               <div ng-repeat="question in jsonStore.result.sections[0].questions">
-                <input type="{{keyMap[question.response_type_id]}}" ng-model="model[question.placeholder]"
-                       class="form-control"  placeholder="{{question.placeholder}}">
+                <input type="{{responseTypes[question.response_type_id]}}" ng-model="model[question.placeholder]"
+                       ng-required="question.is_mandatory" class="form-control"  placeholder="{{question.placeholder}}">
               </div>
             </div>
             <button class="btn btn-primary next">Next</button>
@@ -69,8 +69,8 @@
           <div class="page br-tl-bl">
             <div class="form-group">
               <div ng-repeat="question in jsonStore.result.sections[1].questions">
-                <input type="{{keyMap[question.response_type_id]}}" ng-model="model[question.placeholder]"
-                       class="form-control"  placeholder="{{question.placeholder}}">
+                <input type="{{responseTypes[question.response_type_id]}}" ng-model="model[question.placeholder]"
+                       ng-required="question.is_mandatory" class="form-control"  placeholder="{{question.placeholder}}">
               </div>
             </div>
             <div class="form-group"> <a class="btn btn-success submit-btn" data-toggle="modal" data-target="#myModal"> submit </a> </div>

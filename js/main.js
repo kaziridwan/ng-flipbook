@@ -71,20 +71,5 @@ $(".next").click(function(e){
     e.preventDefault();
     $('.book').turn("next");
 });
-/*$('.submit-btn').click(function(){
-    var firstName = $('#firstName').val();
-    var lastName = $('#lastName').val();
-    var gender = $("input[name='gender']:checked").val();
-    var dob = $('#dob').val();
-    var profession = $('#profession').val();
-    var summary = $('#summary').val();
-    $('#firstNameLabel').text(firstName);
-    $('#lastNameLabel').text(lastName);
-    $('#genderLabel').text(gender);
-    $('#dobLabel').text(dob);
-    $('#professionLabel').text(profession);
-    $('#summaryLabel').text(summary);
-});*/
-
 }());
 

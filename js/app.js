@@ -1,12 +1,8 @@
-/**
- * Created by anoop on 21/2/16.
- */
+
 var app = angular.module('app', []);
 app.controller('flipboardControl', function ($scope) {
-    $scope.model = {
-        1:'anoop'
-    };
-    $scope.keyMap={};
+    $scope.model = {};
+    $scope.responseTypes={};
 
     $scope.jsonStore = {
         "status": "OK",
@@ -197,7 +193,7 @@ app.controller('flipboardControl', function ($scope) {
             ]
         }
     };
-    for(var index in $scope.jsonStore.result.response_types){
-        $scope.keyMap[$scope.jsonStore.result.response_types[index].id] =$scope.jsonStore.result.response_types[index].name;
-    }
+    angular.forEach($scope.jsonStore.result.response_types, function(value){
+        $scope.responseTypes[value.id] =value.name;
+    });
 });

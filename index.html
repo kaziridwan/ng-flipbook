@@ -45,70 +45,78 @@
                     <img src="img/logohome.png" alt="logo"/>
                     <button class="btn btn-primary next">Apply</button>
                 </div>
-                <div class="page br-tr-br">
-                    <div class="form-group">
-                        <div ng-repeat="question in jsonStore.result.sections[0].questions">
-                            <label>{{question.body}}</label>
+                <div ng-repeat="section in jsonStore.result.sections">
+                    <div ng-if="$even">
+                        <div class="page br-tr-br">
+                            <div class="form-group">
+                                <div ng-repeat="question in jsonStore.result.sections[$index].questions">
+                                    <label>{{question.body}}</label>
+                                </div>
+                            </div>
+                            <button class="btn btn-info prev"> Previous</button>
                         </div>
-                    </div>
-                    <button class="btn btn-info prev"> Previous</button>
-                </div>
-                <div class="page br-tl-bl">
-                    <div class="form-group">
-                        <form name="sectionOne" novalidate>
-                            <!--itrating over section to get question
-                            setting modal dynamically
-                            putting ng-required based on isRequired
-                            span added for form validation message
-                            -->
-                            <div ng-repeat="question in jsonStore.result.sections[0].questions">
-                                <input type="{{responseTypes[question.response_type_id]}}"
-                                       name="{{question.placeholder}}" ng-model="model[question.placeholder]"
-                                       ng-required="question.is_mandatory" class="form-control"
-                                       placeholder="{{question.placeholder}}">
+                        <div class="page br-tl-bl">
+                            <div class="form-group">
+                                <form name="sectionOne" novalidate>
+                                    <!--itrating over section to get question
+                                    setting modal dynamically
+                                    putting ng-required based on isRequired
+                                    span added for form validation message
+                                    -->
+                                    <div ng-repeat="question in jsonStore.result.sections[$index].questions">
+                                        <input type="{{responseTypes[question.response_type_id]}}"
+                                               name="{{question.placeholder}}" ng-model="model[question.placeholder]"
+                                               ng-required="question.is_mandatory" class="form-control"
+                                               placeholder="{{question.placeholder}}">
                 <span style="color:red"
                       ng-show="sectionOne[question.placeholder].$dirty && sectionOne[question.placeholder].$invalid">
                 <span ng-show="sectionOne[question.placeholder].$error.required">{{question.placeholder}} is required.</span>
                 </span>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
-                    </div>
-                    <!--disabling next button till form is valid-->
-                    <button ng-disabled="!sectionOne.$valid" class="btn btn-primary next">Next</button>
-                </div>
-                <div class="page br-tr-br">
-                    <div class="form-group">
-                        <div ng-repeat="question in jsonStore.result.sections[1].questions">
-                            <label>{{question.body}}</label>
+                            <!--disabling next button till form is valid-->
+                            <button ng-disabled="!sectionOne.$valid" class="btn btn-primary next">Next</button>
                         </div>
                     </div>
-                </div>
-                <div class="page br-tl-bl">
-                    <div class="form-group">
-                        <form name="sectionTwo" novalidate>
-                            <!--itrating over section to get question
-                       setting modal dynamically
-                       putting ng-required based on isRequired
-                       span added for form validation message
-                       -->
-                            <div ng-repeat="question in jsonStore.result.sections[1].questions">
-                                <input type="{{responseTypes[question.response_type_id]}}"
-                                       ng-model="model[question.placeholder]"
-                                       ng-required="question.is_mandatory" class="form-control"
-                                       placeholder="{{question.placeholder}}">
+                    <div ng-if="$odd">
+                        <div class="page br-tr-br">
+                            <div class="form-group">
+                                <div ng-repeat="question in jsonStore.result.sections[$index].questions">
+                                    <label>{{question.body}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page br-tl-bl">
+                            <div class="form-group">
+                                <form name="sectionTwo" novalidate>
+                                    <!--itrating over section to get question
+                               setting modal dynamically
+                               putting ng-required based on isRequired
+                               span added for form validation message
+                               -->
+                                    <div ng-repeat="question in jsonStore.result.sections[$index].questions">
+                                        <input type="{{responseTypes[question.response_type_id]}}"
+                                               ng-model="model[question.placeholder]"
+                                               ng-required="question.is_mandatory" class="form-control"
+                                               placeholder="{{question.placeholder}}">
                  <span style="color:red"
                        ng-show="sectionTwo[question.placeholder].$dirty && sectionOne[question.placeholder].$invalid">
                 <span ng-show="sectionOne[question.placeholder].$error.required">{{question.placeholder}} is required.</span>
                 </span>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
+                        <div class="form-group">
+                            <!--disabling submit button till form is valid-->
+                            <button class="btn btn-success submit-btn" ng-disabled="!sectionTwo.$valid"
+                                    data-toggle="modal"
+                                    data-target="#myModal"> submit
+                            </button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <!--disabling submit button till form is valid-->
-                        <button class="btn btn-success submit-btn" ng-disabled="!sectionTwo.$valid" data-toggle="modal"
-                                data-target="#myModal"> submit
-                        </button>
-                    </div>
+
                 </div>
             </div>
         </div>

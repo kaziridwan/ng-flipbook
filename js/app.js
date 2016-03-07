@@ -1,4 +1,4 @@
-angular.module('app', [])
+angular.module('app', ['ngMaterial'])
 .controller('flipboardControl', function ($scope) {
     /* $scope.model for view model.
 

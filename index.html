@@ -15,10 +15,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
 </head>
 <body ng-app="app" ng-controller="flipboardControl">
 <!-- start of navbar -->
@@ -66,18 +69,19 @@
                                        name="{{question.placeholder}}" ng-model="model[question.placeholder]"
                                        ng-required="question.is_mandatory" class="form-control"
                                        placeholder="{{question.placeholder}}"
-                                       ng-if="responseTypes[question.response_type_id] !='Radio'" >
-                                <!--radio-->
-                                <div ng-repeat="option in question.options"
-                                     ng-if="responseTypes[question.response_type_id] ==='Radio'">
-                                    <label>
-                                        <input type="{{responseTypes[question.response_type_id] |lowercase}}"
-                                                ng-model="model[question.placeholder]"
-                                               ng-value="option.name">
-                                        {{option.name}}
-                                    </label>
-                                </div>
-                                <!--radio-->
+                                       ng-if="responseTypes[question.response_type_id] !='Radio'">
+                            
+                                <!--drop down-->
+                                <md-content layout-padding  ng-if="responseTypes[question.response_type_id] ==='Radio'">
+                                    <md-input-container>
+                                        <label> {{level}}</label>
+                                        <md-select ng-model="model[question.placeholder]">
+                                            <md-option ng-repeat="option in question.options" ng-value="option.name">{{option.name}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </md-content>
+                                <!--drop down-->
                 <span style="color:red"
                       ng-show="sectionOne[question.placeholder].$dirty && sectionOne[question.placeholder].$invalid">
                 <span ng-show="sectionOne[question.placeholder].$error.required">{{question.placeholder}} is required.</span>
@@ -109,17 +113,17 @@
                                        ng-required="question.is_mandatory" class="form-control"
                                        placeholder="{{question.placeholder}}"
                                        ng-if="responseTypes[question.response_type_id] !='Radio'">
-                                <!--radio-->
-                                <div ng-repeat="option in question.options"
-                                     ng-if="responseTypes[question.response_type_id] ==='Radio'">
-                                    <label>
-                                        <input type="{{responseTypes[question.response_type_id] |lowercase}}"
-                                               ng-model="model[question.placeholder]"
-                                               ng-value="option.name">
-                                        {{option.name}}
-                                    </label>
-                                </div>
-                                <!--radio-->
+                                <!--drop down-->
+                                <md-content layout-padding  ng-if="responseTypes[question.response_type_id] ==='Radio'">
+                                    <md-input-container>
+                                        <label> {{level}}</label>
+                                        <md-select ng-model="model[question.placeholder]">
+                                            <md-option ng-repeat="option in question.options" ng-value="option.name">{{option.name}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </md-content>
+                                <!--drop down-->
                  <span style="color:red"
                        ng-show="sectionTwo[question.placeholder].$dirty && sectionOne[question.placeholder].$invalid">
                 <span ng-show="sectionOne[question.placeholder].$error.required">{{question.placeholder}} is required.</span>
@@ -169,9 +173,18 @@
 <!-- End of Modal -->
 <!-- Start of script -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 <script src="js/vendor/bootstrap.min.js"></script>
+
+<!-- Angular Material CSS now available via Google CDN; version 0.11.2 used here -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+
+<!--angualr material-->
 <script src="js/turn.js"></script>
 <script src="js/main.js"></script>
 <script src="js/app.js"></script>

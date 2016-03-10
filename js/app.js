@@ -1,4 +1,4 @@
-angular.module('app', ['ngMaterial'])
+angular.module('app', ['ngMaterial','ngAria'])
 .controller('flipboardControl', function ($scope) {
     /* $scope.model for view model.
 
@@ -175,93 +175,81 @@ angular.module('app', ['ngMaterial'])
                     "options": []
                 }]
             }, {
-                "id": 189,
-                "name": "R E N T",
-                "section_no": 3,
+                "id": 187,
+                "name": "O W N E R",
+                "section_no": 1,
                 "description": "",
                 "questions": [{
-                    "id": 979,
-                    "response_type_id": 3,
-                    "is_mandatory": true,
-                    "body": "ENTER THE RENT AMOUNT",
-                    "associated_text": "",
-                    "placeholder": "RENT_AMOUNT",
-                    "options": []
-                }, {
-                    "id": 980,
-                    "response_type_id": 3,
-                    "is_mandatory": true,
-                    "body": "ENTER THE ADVANCE AMOUNT PAID",
-                    "associated_text": "",
-                    "placeholder": "ADVANCE_AMOUNT",
-                    "options": []
-                }, {
-                    "id": 981,
+                    "id": 967,
                     "response_type_id": 4,
-                    "is_mandatory": false,
-                    "body": "PLEASE CHOOSE A MODE OF PAYMENT FOR ADVANCE",
+                    "is_mandatory": true,
+                    "body": "PLEASE SELECT THE OWNER'S SALUTATION",
                     "associated_text": "",
-                    "placeholder": "MODE_OF_PAYMENT",
+                    "placeholder": "OWNER_SALUTATION",
                     "options": [{
-                        "id": 176,
-                        "name": "Cash",
+                        "id": 163,
+                        "name": "Mr.",
                         "priority": null
                     }, {
-                        "id": 177,
-                        "name": "Cheque",
+                        "id": 164,
+                        "name": "Ms.",
                         "priority": null
                     }, {
-                        "id": 178,
-                        "name": "Bank transfer",
+                        "id": 165,
+                        "name": "Mrs.",
+                        "priority": null
+                    }, {
+                        "id": 166,
+                        "name": "Dr.",
                         "priority": null
                     }]
                 }, {
-                    "id": 982,
+                    "id": 968,
+                    "response_type_id": 1,
+                    "is_mandatory": true,
+                    "body": "ENTER THE OWNER'S NAME",
+                    "associated_text": "",
+                    "placeholder": "OWNER_NAME",
+                    "options": []
+                }, {
+                    "id": 969,
+                    "response_type_id": 4,
+                    "is_mandatory": true,
+                    "body": "CHOOSE ONE OF THE RELATIONSHIPS",
+                    "associated_text": "",
+                    "placeholder": "OWNER_RELATION",
+                    "options": [{
+                        "id": 167,
+                        "name": "S/o",
+                        "priority": null
+                    }, {
+                        "id": 168,
+                        "name": "D/o",
+                        "priority": null
+                    }]
+                }, {
+                    "id": 970,
+                    "response_type_id": 1,
+                    "is_mandatory": true,
+                    "body": "OWNER'S FATHER'S NAME",
+                    "associated_text": "",
+                    "placeholder": "OWNER_RELATION_NAME",
+                    "options": []
+                }, {
+                    "id": 971,
                     "response_type_id": 3,
                     "is_mandatory": true,
-                    "body": "ENTER THE TENURE OF THE TENANCY",
+                    "body": "AGE OF THE OWNER",
                     "associated_text": "",
-                    "placeholder": "RENT_PERIOD",
+                    "placeholder": "OWNER_AGE",
                     "options": []
                 }, {
-                    "id": 983,
-                    "response_type_id": 2,
+                    "id": 972,
+                    "response_type_id": 1,
                     "is_mandatory": true,
-                    "body": "PLEASE CHOOSE THE EFFECTIVE DATE OF TENANCY",
+                    "body": "CURRENT ADDRESS OF THE OWNER",
                     "associated_text": "",
-                    "placeholder": "TENANCY_EFFECTIVE_DATE",
-                    "options": []
-                }, {
-                    "id": 984,
-                    "response_type_id": 3,
-                    "is_mandatory": true,
-                    "body": "PERCENTAGE OF RENT INCREASE AFTER THE TENANCY TENURE",
-                    "associated_text": "",
-                    "placeholder": "RENT_INCREASE_PERCENTAGE",
-                    "options": []
-                }, {
-                    "id": 985,
-                    "response_type_id": 2,
-                    "is_mandatory": true,
-                    "body": "WHAT IS THE MONTHLY RENT PAYABLE DATE",
-                    "associated_text": "",
-                    "placeholder": "RENT_DATE",
-                    "options": []
-                }, {
-                    "id": 986,
-                    "response_type_id": 3,
-                    "is_mandatory": true,
-                    "body": "ENTER THE NOTICE PERIOD FOR VACATING THE FLAT",
-                    "associated_text": "In months",
-                    "placeholder": "VACATION_NOTICE",
-                    "options": []
-                }, {
-                    "id": 987,
-                    "response_type_id": 2,
-                    "is_mandatory": false,
-                    "body": "DATE OF PREPARATION OF DOCUMENT",
-                    "associated_text": "Preparation date can only be a future date",
-                    "placeholder": "DATE_OF_PREPARATION",
+                    "placeholder": "OWNER_ADDRESS",
                     "options": []
                 }]
             }, {
